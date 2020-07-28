@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <conio.h>
+int main(void) {
+unsigned long long a=0, b=0, n=0, d=0, f=0, j=0, z=100000, x=0, p=0, dd=0, ddd=0;
+int ari[100001], res[100001], e=0, cnt=0;
+_textcolor(7);
+printf("Decimal fraction generator: prints many decimal places.\n");
+printf("The upper limit for numerator and denominator integers is \(2^63\)\/10 (~18 digits)).\n");
+printf("You will be asked for how many decimal places you want, your limit is 100,000.\n");
+printf("A fraction doesn't repeat more digits than its denominator\(d\) value minus 1,\n");
+printf("the program will default to \(d*2\)-1 \(to show any repetition\) if a larger value is input.\n");
+printf("Ratios to try (copy and paste): \n");
+printf("n=8958937768937, d=2851718461558, decimal places=25: %c accurate to 25 places.\n", 227);
+printf("n=1779979416004714189, d=1100087778366101931, decimal places=36: %c accurate to 36 places.\n", 237);
+printf("n=21306, d=70777, decimal places=10: log2 accurate to 10 places.\n");
+printf("n=12993, d=18089, decimal places=9:   e-2 accurate to 9 places.\n");
+printf("n=2378,  d=5741,  decimal places=7:  %c2-1 accurate to 7 places.\n", 251);
+while (p==0) {
+printf("\nNumerator: "); scanf("%llu", &n); printf("Denominator: "); scanf("%llu", &d); x=(d*2)-1;
+printf("\nNumber of decimal places: "); scanf("%llu", &dd); ddd=dd+1;
+while(f!=0) {f=f/10; ++cnt;}
+a=n/d;  ari[1]=a; 	b=n-(a*d);
+for (e=1; e<=ddd; e++) {
+a=(b*10)-((b*10)/d)*d; b=(b*10)/d;
+ari[e+1]=b; b=a;}
+printf("\n\n",b);
+for (j=ddd; j>=2; j--) {if (ari[j]==0) {z--;} else {break; }}
+for (j=z; j>=2; j--) {res[j]=ari[j];}
+printf("%d.", ari[1]);
+for (j=2; (j<=z && j<=ddd && j<=x); j++) {printf("%d", res[j]);}
+printf("\n\n",b); a=0; b=0; n=0; d=0; e=0; for (j=1; j<=ddd; j++) {ari[j]=0; res[j]=0;}}
+return(0);}
